@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Tour Experiences - James Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+       .tour-hero {
+      padding: 120px 0 60px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--glass) 0%, var(--bg) 100%);
+    }
+    
+    .tour-timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .timeline-item {
+      display: flex;
+      margin-bottom: 50px;
+      position: relative;
+    }
+    
+    .timeline-date {
+      flex: 0 0 120px;
+      text-align: right;
+      padding-right: 30px;
+      position: relative;
+    }
+    
+    .timeline-date::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+    }
+    
+    .timeline-content {
+      flex: 1;
+      padding-left: 30px;
+      border-left: 2px solid var(--accent);
+    }
+    
+    .timeline-content h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-item {
+      display: flex;
+      margin-bottom: 50px;
+      position: relative;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .timeline-date {
+      flex: 0 0 120px;
+      text-align: right;
+      padding-right: 30px;
+      position: relative;
+    }
+
+    .timeline-date::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 4px solid var(--bg);
+    }
+
+    .timeline-images {
+      flex: 0 0 200px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .timeline-image {
+      width: 100%;
+    }
+
+    .timeline-image img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .timeline-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding-left: 30px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .timeline-content h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* GALLERY STYLES - FIXED POSITION */
+    .tour-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      cursor: zoom-in;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* CENTER ITEM STYLES - MUST BE OUTSIDE MEDIA QUERIES */
+    .center-item {
+      grid-column: 1 / -1;
+      justify-self: center;
+      max-width: 280px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 40px 0;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      color: var(--accent-2);
+      transform: translateX(-5px);
+    }
+
+    /* ===== MOBILE RESPONSIVE IMPROVEMENTS ===== */
+    
+    /* Navigation for educ.html */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .nav-links a {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+      }
+      
+      .theme-toggle {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Tour Hero */
+    @media (max-width: 768px) {
+      .tour-hero {
+        padding: 100px 0 40px;
+      }
+      
+      .tour-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+    }
+    
+    /* Timeline Section */
+    @media (max-width: 768px) {
+      .timeline-item {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .timeline-images {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .timeline-image {
+        flex: 0 0 calc(50% - 5px);
+        max-width: 145px;
+      }
+      
+      .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 30px;
+      }
+      
+      .timeline-date::after {
+        left: -10px;
+        right: auto;
+      }
+      
+      .timeline-content {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 20px;
+        border-top: 2px solid var(--accent);
+      }
+
+      .tour-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .center-item {
+        max-width: 200px;
+      }
+      
+      .timeline-content h3 {
+        font-size: 1.2rem;
+      }
+      
+      .timeline-content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tour-gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      
+      .center-item {
+        grid-column: 1 / -1;
+        max-width: 200px;
+      }
+    }
+    
+    /* Faculty & Tour Guides Section */
+    @media (max-width: 768px) {
+      .tour-guides {
+        gap: 30px;
+        justify-content: center;
+      }
+      
+      .guide-item {
+        max-width: 130px;
+      }
+      
+      .guide-avatar {
+        width: 90px;
+        height: 90px;
+      }
+      
+      .guide-info h4 {
+        font-size: 1rem;
+      }
+      
+      .guide-info p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tour-guides {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      
+      .guide-item {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+      }
+      
+      .guide-avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+      }
+      
+      .guide-item:hover {
+        transform: translateY(-5px);
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .tour-guides {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .guide-item {
+        flex: 0 0 100%;
+        max-width: 250px;
+        width: 100%;
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+      }
+      
+      .guide-avatar {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0;
+      }
+    }
+    
+    /* Certificate Section */
+    @media (max-width: 768px) {
+      .certificate-gallery-item {
+        width: 250px;
+      }
+      
+      .certificate-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .certificate-actions .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .certificate-info {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .certificate-gallery-item {
+        width: 200px;
+      }
+      
+      .certificate-label {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+        bottom: -22px;
+      }
+    }
+    
+    /* Key Learnings Section */
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .skill-card {
+        padding: 20px;
+      }
+      
+      .skill-card h3 {
+        font-size: 1.1rem;
+      }
+      
+      .skill-card p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Footer */
+    @media (max-width: 768px) {
+      .footer {
+        text-align: center;
+        padding: 20px 0;
+      }
+    }
+
+    /* ===== HAMBURGER MENU FOR MOBILE ===== */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+    
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+      }
+      
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        z-index: 100;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+    }
+
+    /* ===== BORDER HIGHLIGHT WITH GALLERY FIX ===== */
+
+/* 1. GALLERY ITEMS - FIXED */
+.gallery-item {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: var(--radius);
+  /* Remove overflow: hidden if it exists */
+  overflow: visible !important;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  /* Ensure the image doesn't overflow */
+  display: block;
+}
+
+.gallery-item:hover {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px; /* Increased offset for visibility */
+  box-shadow: 
+    0 0 20px rgba(255, 95, 109, 0.6),
+    0 0 40px rgba(255, 95, 109, 0.3);
+  transform: scale(1.02);
+  z-index: 10; /* Bring to front so outline is visible */
+}
+
+/* 2. OTHER IMAGES */
+.blog-image,
+.project-card,
+.timeline-image,
+.avatar {
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: var(--radius);
+}
+
+.blog-image img,
+.project-card img,
+.timeline-image img,
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.blog-image:hover,
+.project-card:hover,
+.timeline-image:hover,
+.avatar:hover {
+  outline: 3px solid var(--accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 15px rgba(255, 95, 109, 0.4);
+  transform: scale(1.02);
+}
+
+.avatar,
+.avatar:hover {
+  border-radius: 50%;
+}
+
+/* 3. SOCIAL MEDIA ICONS */
+.socials a:hover,
+.contact-socials a:hover {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 10px rgba(255, 95, 109, 0.4);
+  transform: scale(1.1);
+}
+
+/* 4. BUTTONS */
+.btn:hover {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 10px rgba(255, 95, 109, 0.4);
+}
+
+/* 5. CARDS */
+.skill-card:hover,
+.education-card:hover,
+.blog-card:hover {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  box-shadow: 0 0 12px rgba(255, 95, 109, 0.4);
+  transform: translateY(-3px);
+}
+
+/* 6. BACK BUTTON */
+.back-btn:hover {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 8px rgba(255, 95, 109, 0.3);
+}
+      /* FACULTY/IN-CHARGE STYLES */
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .faculty-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+    
+    .faculty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    
+    .faculty-avatar {
+      flex: 0 0 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+    }
+    
+    .faculty-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .faculty-card:hover .faculty-avatar img {
+      transform: scale(1.1);
+    }
+    
+    .faculty-info {
+      flex: 1;
+    }
+    
+    .faculty-info h3 {
+      margin: 0 0 5px 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    
+    .faculty-role {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    
+    .faculty-bio {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    
+    .faculty-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+    
+    .faculty-contact i {
+      font-size: 0.9rem;
+    }
+    
+    /* RESPONSIVE STYLES FOR FACULTY SECTION */
+    @media (max-width: 768px) {
+      .faculty-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      
+      .faculty-avatar {
+        flex: 0 0 100px;
+        width: 100px;
+        height: 100px;
+      }
+      
+      .faculty-contact {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .faculty-grid {
+        grid-template-columns: 1fr;
+      }
+    }    /* TOUR GUIDES STYLES */
+    .tour-guides {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    .guide-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 150px;
+    }
+    
+    .guide-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      margin-bottom: 15px;
+    }
+    
+    .guide-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .guide-info h4 {
+      margin: 0 0 5px 0;
+      color: var(--accent);
+    }
+    
+    .guide-info p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    /* RESPONSIVE STYLES FOR 4 CARDS WITH CENTERED LAST CARD */
+@media (max-width: 1200px) {
+  .faculty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* For 4 cards, center the last one when in 2-column layout */
+  .faculty-card:nth-child(3) {
+    justify-self: start;
+  }
+  
+  .faculty-card:last-child:nth-child(4) {
+    grid-column: span 2;
+    justify-self: center;
+    max-width: 300px; /* Adjust as needed */
+  }
+}
+
+@media (max-width: 768px) {
+  .faculty-grid {
+    grid-template-columns: 1fr;
+    justify-items: center; /* Center all cards on mobile */
+  }
+  
+  /* Reset the 2-column centering for mobile */
+  .faculty-card:last-child:nth-child(4) {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+  
+  .tour-guides {
+    gap: 30px;
+  }
+  
+  .guide-item {
+    max-width: 130px;
+  }
+  
+  .guide-avatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Center all faculty cards on very small screens */
+  .faculty-grid {
+    justify-items: center;
+  }
+  
+  .faculty-card {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .tour-guides {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .guide-item {
+    flex-direction: row;
+    max-width: 100%;
+    gap: 15px;
+    text-align: left;
+  }
+  
+  .guide-avatar {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0;
+  }
+}    /* CERTIFICATE DISPLAY STYLES */
+    .certificate-display {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    
+    .certificate-image-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      border: 2px solid var(--accent);
+      margin-bottom: 30px;
+      cursor: zoom-in;
+      transition: all 0.3s ease;
+    }
+    
+    .certificate-image-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    
+    .certificate-img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      display: block;
+    }
+    
+    .certificate-info {
+      background: var(--glass);
+      padding: 20px;
+      border-radius: var(--radius);
+      margin-bottom: 30px;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .certificate-info p {
+      margin: 10px 0;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .certificate-info i {
+      color: var(--accent);
+      width: 20px;
+      text-align: center;
+    }
+    
+    .certificate-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    /* RESPONSIVE CERTIFICATE */
+    @media (max-width: 768px) {
+      .certificate-image-container {
+        padding: 15px;
+      }
+      
+      .certificate-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .certificate-actions .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .certificate-info {
+        padding: 15px;
+      }
+    }    /* SMALL CLICKABLE CERTIFICATE STYLES */
+    .certificate-container {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    
+    .certificate-gallery-item {
+      position: relative;
+      width: 300px;
+      margin: 0 auto 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: var(--radius);
+      overflow: visible !important;
+    }
+    
+    .certificate-thumbnail {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--accent);
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .certificate-gallery-item:hover .certificate-thumbnail {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+      z-index: 10;
+    }
+    
+    .certificate-label {
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(255, 95, 109, 0.3);
+    }
+    
+    .certificate-info {
+      background: var(--glass);
+      padding: 20px;
+      border-radius: var(--radius);
+      margin: 50px 0 30px;
+      text-align: left;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .certificate-info p {
+      margin: 10px 0;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .certificate-info i {
+      color: var(--accent);
+      width: 20px;
+      text-align: center;
+    }
+    
+    .certificate-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    /* RESPONSIVE CERTIFICATE */
+    @media (max-width: 768px) {
+      .certificate-gallery-item {
+        width: 250px;
+      }
+      
+      .certificate-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .certificate-actions .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .certificate-info {
+        padding: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .certificate-gallery-item {
+        width: 200px;
+      }
+      
+      .certificate-label {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+        bottom: -22px;
+      }
+    }.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.faculty-card {
+  text-align: center;
+  padding: 15px;
+}
+
+.faculty-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px;
+}
+
+.faculty-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+.faculty-bio {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.4;
+}/* ===== TOUR GUIDE & FACULTY HOVER EFFECTS ===== */
+
+/* Make guide items clickable with same effects as gallery */
+.guide-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 150px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--radius);
+  padding: 10px;
+  position: relative;
+}
+
+.guide-item:hover {
+  transform: translateY(-8px);
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 
+    0 0 20px rgba(255, 95, 109, 0.6),
+    0 0 40px rgba(255, 95, 109, 0.3);
+  z-index: 10;
+}
+
+.guide-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.guide-item:hover .guide-avatar {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 20px rgba(255, 95, 109, 0.6),
+    0 0 40px rgba(255, 95, 109, 0.3);
+  border-color: var(--accent-2);
+}
+
+.guide-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.guide-item:hover .guide-avatar img {
+  transform: scale(1.1);
+}
+
+.guide-info h4 {
+  margin: 0 0 5px 0;
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+.guide-item:hover .guide-info h4 {
+  color: var(--accent-2);
+}
+
+.guide-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.guide-item:hover .guide-info p {
+  color: var(--text);
+}
+
+/* Make sure the tour-guides container works with these effects */
+.tour-guides {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tour-guides {
+    gap: 30px;
+  }
+  
+  .guide-item {
+    max-width: 130px;
+    padding: 8px;
+  }
+  
+  .guide-avatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-guides {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .guide-item {
+    flex-direction: row;
+    max-width: 100%;
+    gap: 15px;
+    text-align: left;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .guide-avatar {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0;
+  }
+  
+  .guide-item:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+/* If you want to add a click ripple effect, add this: */
+.guide-item:active {
+  transform: translateY(-5px) scale(0.98);
+  transition: transform 0.1s ease;
+}/* Click animation */
+@keyframes clickPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.guide-item.clicked {
+  animation: clickPulse 0.3s ease;
+}.center-item {
+  grid-column: auto !important;
+}
+.center-item {
+  grid-column: auto !important;
+  max-width: 100% !important;
+  justify-self: stretch !important;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="nav">
+  <div class="container nav-inner">
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+    <a href="index.html" class="logo">MyPortfolio</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#incharge">Tour In-Charge</a>
+      <a href="#certificate">Certificate</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+  </div>
+</header>
+  <main>
+    <!-- Tour Hero Section -->
+    <section class="tour-hero">
+      <div class="container">
+        <h1>Cebu-Bohol Educational Tour 2025</h1> 
+        <p class="section-subtitle">My journey through technology companies and historical sites in Cebu and Bohol.</p>
+      </div>
+    </section>
+
+    <!-- Timeline Experiences -->
+    <section id="experiences" class="section">
+      <div class="container">
+        <h2 class="section-title">Tour Timeline & Experiences</h2>
+        
+        <div class="tour-timeline">
+          <!-- Day 1 -->
+<!-- Day 1 -->
+<div class="timeline-item reveal">
+  <div class="timeline-date">
+    <h3>November 19, 2025</h3>
+  </div>
+  
+  <div class="timeline-images">
+    <div class="timeline-image">
+      <img src="images/wt.jpg" alt="WorldTech Company Visit">
+    </div>
+    <div class="timeline-image">
+      <img src="images/lapu2.jpg" alt="Lapu-Lapu Historical Site">
+    </div>
+  </div>
+  
+  <div class="timeline-content">
+    <h3>Day 1 - WorldTech & Historical Site Visit</h3>
+    <p>Visited one of the Trusted and Famous technology companies in Cebu including WorldTech Information Solutions Inc. We learn about how Cybersecurity works and how to deal with hackers and mailwares. They Teach how real-world of IT works and gives us advice and insights of what path we take in the world of Tech. Lastly we visited one of the famous tourist spot in cebu called Lapu-Lapu.</p>
+    <div class="blog-tags">
+      <span class="tag">Technology</span>
+      <span class="tag">Career Insights</span>
+      <span class="tag">Networking</span>
+    </div>
+  </div>
+</div>
+
+<!-- Day 2 -->
+<div class="timeline-item reveal">
+  <div class="timeline-date">
+    <h3>November 20, 2025</h3>
+  </div>
+  
+  <div class="timeline-images">
+    <div class="timeline-image">
+      <img src="images/rivan 2.jpg" alt="Rivan IT Cebu Training Center">
+    </div>
+    <div class="timeline-image">
+      <img src="images/codec.jpg" alt="Codechum Company Visit">
+    </div>
+  </div>
+  
+  <div class="timeline-content">
+    <h3>Day 2 - Rivan IT Cebu and Codechum</h3>
+    <p>In the second day we visited the Rivan IT Cebu, This Company is a training center. They are specialize in IT and Networking certifications courses like Cisco and Linux. During our visits they teach us the basics of networking and how they setups, configure the network like call center company and they give also insights and idea what are the possible path we could possibly take after we graduate.Before the day ends we also visited Codechum and talk to the Co-Founder of CodeChum We learn many things and enjoy during our visit.</p>
+    <div class="blog-tags">
+      <span class="tag">History</span>
+      <span class="tag">Career Insights</span>
+      <span class="tag">Technology</span>
+    </div>
+  </div>
+</div>
+
+<!-- Day 3 -->
+<div class="timeline-item reveal">
+  <div class="timeline-date">
+    <h3>November 21, 2025</h3>
+  </div>
+  
+  <div class="timeline-images">
+    <div class="timeline-image">
+      <img src="images/mata.jpg" alt="MATA Technologies Inc. Office">
+    </div>
+    <div class="timeline-image">
+      <img src="images/donations.jpg" alt="Cebu Municipal Hall ">
+    </div>
+  </div>
+  
+  <div class="timeline-content">
+    <h3>Day 3 - MATA Technologies Inc.</h3>
+    <p>In the 3rd day we visit the MATA Technologies Inc. and this company is a homegrown provider of Virtual tours for real estate in the Philippines. During our visit they introduce to us how they create the virtual tours project and other project that they already made like virtual games. They give also ideas on creating our own game application, give us advice and inspirations to continue our journey in the IT industry in the future.
+      After that we go to cebu city hall to deliver our donations for the affected of the calamity in Cebu.
+    </p>
+    <div class="blog-tags">
+      <span class="tag">Virtual Reality</span>
+      <span class="tag">Game Development</span>
+      <span class="tag">Public Service</span>
+    </div>
+  </div>
+</div>
+
+<!-- Day 4 -->
+<div class="timeline-item reveal">
+  <div class="timeline-date">
+    <h3>November 22, 2025</h3>
+  </div>
+  
+  <div class="timeline-images">
+    <div class="timeline-image">
+      <img src="images/CDRRMO.jpg" alt="CDRRMO Office Visit">
+    </div>
+    <div class="timeline-image">
+      <img src="images/mirror1.jpg" alt="Sekatunas Mirror of the World">
+    </div>
+  </div>
+  
+  <div class="timeline-content">
+    <h3>Day 4 - Visited the CDRRMO of Tagbilaran and Sekatunas Mirror of the World</h3>
+    <p>In the last day we visited the CDRRMO of tagbilaran and they show us how they work and how hard to handle a single city and they shares pre cautions and tips that will help
+      us whenerver we are in danger. After that we go in Sekatunas Mirror of the World and takes picture buy souvenirs the place is so amazing and enjoyable.
+    </p>
+    <div class="blog-tags">
+      <span class="tag">Government</span>
+      <span class="tag">Digital Transformation</span>
+      
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+        <!-- Photo Gallery -->
+    <section id="gallery" class="section" style="background: var(--glass);">
+      <div class="container">
+        <h2 class="section-title">Tour Gallery</h2>
+        <p class="section-subtitle">Memorable moments from the educational tour</p>
+        
+        <div class="tour-gallery">
+          <!-- Row 1 -->
+          <div class="gallery-item">
+            <img src="images/church.jpg" alt="Church Visit">
+          </div>
+          <div class="gallery-item">
+            <img src="images/lapu.jpg" alt="Lapu-Lapu Historical Site">
+          </div>
+          <div class="gallery-item">
+            <img src="images/rivan.jpg" alt="Rivan IT Cebu">
+          </div>
+          <div class="gallery-item">
+            <img src="images/rivan 4.jpg" alt="Group Photo at Rivan">
+          </div>
+          
+          <!-- Row 2 -->
+          <div class="gallery-item">
+            <img src="images/rivan 3.jpg" alt="Workshop Session">
+          </div>
+          <div class="gallery-item">
+            <img src="images/codechum.jpg" alt="CodeChum Visit">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img7.jpg" alt="University Visit">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img8.jpg" alt="MATA Technologies">
+          </div>
+          
+          <!-- Row 3 -->
+          <div class="gallery-item">
+            <img src="images/img9.jpg" alt="Workshop Sesions">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img10.jpg" alt="Tarsier Site">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img11.jpg" alt="Cebu Municipal Hall">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img12.jpg" alt="Bai Hotel">
+          </div>
+          
+          <!-- Row 4 -->
+          <div class="gallery-item">
+            <img src="images/img13.jpg" alt="Davao Airport">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img14.jpg" alt="Somak Buffet">
+          </div>
+          <div class="gallery-item">
+            <img src="images/img15.jpg" alt="Sto Nino Church">
+          </div>
+          
+          <!-- Last Image Centered -->
+          <div class="gallery-item center-item">
+            <img src="images/img16.jpg" alt="Cultural Experience">
+          </div>
+        </div>
+      </div>
+    </section>
+         <!-- Tour In-Charge Section -->
+<section id="incharge" class="section" style="background: var(--glass);">
+  <div class="container">
+    <h2 class="section-title">Tour In-Charge & Faculty</h2>
+    <p class="section-subtitle">The dedicated team that made this educational tour possible</p>
+    
+    <!-- Faculty Members - Using tour-guides style -->
+    <div class="tour-guides">
+      <div class="guide-item">
+        <div class="guide-avatar">
+          <img src="images/owen.jpg" alt="Dr. Maria Santos" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <div class="guide-info">
+          <h4>Dr. Owen B. Pilongo</h4>
+          <p>DEAN Program Chairperson, BSIT/BLIS.</p>
+        </div>
+      </div>
+      
+      <div class="guide-item">
+        <div class="guide-avatar">
+          <img src="images/keana.jpg" alt="Prof. John Dela Cruz" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <div class="guide-info">
+          <h4>Ms. Keana Cerela Giron</h4>
+          <p>ITS Moderator & Full-time Faculty.</p>
+        </div>
+      </div>
+      
+      <div class="guide-item">
+        <div class="guide-avatar">
+          <img src="images/kent.jpg" alt="Prof. Anna Reyes" onerror="this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <div class="guide-info">
+          <h4>Sir Kent Vincent Sarsalejo</h4>
+          <p>Full-time Faculty.</p>
+        </div>
+      </div>
+      
+      <div class="guide-item">
+        <div class="guide-avatar">
+          <img src="images/eugene.jpg" alt="Mr. Carlos Lim" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+        </div>
+        <div class="guide-info">
+          <h4>Sir Eugene Elumbaring</h4>
+          <p>Full-time Faculty.</p>
+        </div>
+      </div>
+    </div>
+        
+        <!-- Tour Guides Section -->
+        <div style="margin-top: 60px;">
+          <h3 class="section-title" style="font-size: 1.8rem;">Tour Guides</h3>
+          <div class="tour-guides">
+            <div class="guide-item">
+              <div class="guide-avatar">
+                <img src="images/taner.jpg" alt="Alex Rivera" onerror="this.src='https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+              </div>
+              <div class="guide-info">
+                <h4>Taner Von</h4>
+                <p>Professional Tour Guide</p>
+              </div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-avatar">
+                <img src="images/dibdib.jpg" alt="Liza Gomez" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'">
+              </div>
+              <div class="guide-info">
+                <h4>Roschelle Danica</h4>
+                <p>Professional Tour  Guide</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+              <!-- Certificate Display -->
+    <section id="certificate" class="section">
+      <div class="container">
+        <h2 class="section-title">Tour Certificate</h2>
+        <p class="section-subtitle">Certificate of Completion for Cebu-Bohol Educational Tour 2025</p>
+        
+        <div class="certificate-container">
+          <!-- Small, clickable certificate like gallery images -->
+          <div class="certificate-gallery-item">
+            <img src="images/cert.jpg" alt="Educational Tour Certificate" 
+                 class="certificate-thumbnail" 
+                 onclick="openCertificate()">
+            <div class="certificate-label">
+              <i class="fas fa-award"></i> Click to View Certificate
+            </div>
+          </div>
+          
+          <div class="certificate-info">
+            <p><i class="fas fa-calendar-alt"></i> Issued on: November 23, 2025</p>
+            <p><i class="fas fa-id-badge"></i> Certificate ID: TOUR-2025-CEB-BOH-001</p>
+            
+          </div>
+          
+          <div class="certificate-actions">
+            <a href="images/cert.jpg" download="Cebu-Bohol-Educational-Tour-Certificate.jpg" class="btn">
+              <i class="fas fa-download"></i> Download Certificate
+            </a>
+            <button onclick="printCertificate()" class="btn btn-outline">
+              <i class="fas fa-print"></i> Print Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Key Learnings -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Key Learnings & Takeaways</h2>
+        <div class="skills-grid" style="margin-top: 40px;">
+          <div class="skill-card">
+            <i class="fas fa-network-wired" style="font-size: 3rem; color: var(--accent);"></i>
+            <h3>Industry Insights</h3>
+            <p>Understanding real-world tech applications and career paths</p>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-handshake" style="font-size: 3rem; color: var(--accent);"></i>
+            <h3>Professional Network</h3>
+            <p>Built connections with professionals and students</p>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--accent);"></i>
+            <h3>Practical Skills</h3>
+            <p>Gained hands-on experience in workshops</p>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-globe-asia" style="font-size: 3rem; color: var(--accent);"></i>
+            <h3>Cultural Awareness</h3>
+            <p>Appreciated technology's role in society</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Main Blog -->
+    <div class="container" style="text-align: center;">
+      <a href="index.html#blog" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Blog
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> James — Educational Tour Experiences</p>
+  </footer>
+  <!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="modalCaption" class="modal-caption"></div>
+</div>
+    
+
+  <script src="script.js"></script>
+  <!-- Add JavaScript for hamburger menu -->
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('active');
+        }
+      });
+      
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+    
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add click effects to guide items
+    document.querySelectorAll('.guide-item').forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+          this.classList.remove('clicked');
+        }, 300);
+        
+        // You can add functionality here for what happens when clicked
+        const name = this.querySelector('h4').textContent;
+        const role = this.querySelector('p').textContent;
+        console.log(`Clicked on: ${name} - ${role}`);
+      });
+    });
+  </script>
+  
+</body>
+</html>

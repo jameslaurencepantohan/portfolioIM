@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="logo">MyPortfolio</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-inner container">
+            <div class="hero-left">
+                <div class="avatar">
+                    <!-- Replace the src with your own image URL or path -->
+                    <img src="images/profile.jpg" alt="Profile Picture" id="profile-img">
+                </div>
+            </div>
+
+        <div class="hero-right">
+          <h1 class="intro">Hi, It's <span class="name">James</span></h1>
+          <h2 class="role">I'm a <span class="typing" aria-live="polite"></span></h2>
+          <p class="desc">I build modern, accessible websites and web apps — clean UI, thoughtful UX, and performant code.</p>
+
+          <div class="actions">
+            <div class="socials">
+              <a href="#" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="#contact" class="btn">Hire me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">UI/UX Design, Frontend Development, Web Consulting</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><p>HTML</p></div>
+          <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><p>CSS</p></div>
+          <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><p>JavaScript</p></div>
+          <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><p>React</p></div>
+          <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><p>SQL</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 1">
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 2">
+            <h3>E-commerce Store</h3>
+            <p>An online store created using React and MySQL for product management.</p>
+          </div>
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Project 3">
+            <h3>Task Manager</h3>
+            <p>A task management web app with user authentication and SQL database.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-card">
+          <img src="images/hcdc.jpg" alt="Holy Cross Logo" class="school-logo">
+          <div class="education-info">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p>Holy Cross of Davao College — Currently Studying</p>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <img src="images/cnhs.webp" alt="Carmen High School Logo" class="school-logo">
+          <div class="education-info">
+            <h3>Senior High / Junior High School</h3>
+            <p>Carmen National High School — 2016 - 2023</p>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <img src="images/elem.jpg" alt="Elementary School Logo" class="school-logo">
+          <div class="education-info">
+            <h3>Elementary</h3>
+            <p>Carmen Central Elementary School — 2009 - 2015</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+        <!-- Blog Section -->
+    <section id="blog" class="section reveal">
+      <div class="container">
+        <h2 class="section-title">Educational Tour Blog</h2>
+        <p class="section-subtitle">Sharing my learning experiences and adventures</p>
+        
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="images/worldtech.jpg" alt="Tech Company Visit">
+              <div class="blog-date">November 19, 2025</div>
+            </div>
+            <div class="blog-content">
+              <h3>Visiting Tech Companies in Cebu</h3>
+              <p>Our educational tour took us to several tech companies in Cebu City and Bohol where we got to see real-world applications of the technologies we're learning in class.</p>
+            </div>
+          </article>
+          
+          <!-- Blog Post 2 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="images/mactan.jpg" alt="Historical Site Visit">
+              <div class="blog-date">November 19, 2025</div>
+            </div>
+            <div class="blog-content">
+              <h3>Learning History Through Site Visits</h3>
+              <p>Exploring historical sites gave us a deeper understanding of our country's rich heritage and how technology can help preserve it.</p>
+            </div>
+          </article>
+          
+         
+        </div>
+        
+        <div class="blog-cta">
+          <p>Want to read more about my educational tour journey?</p>
+          <a href="educ.html" class="btn">View All Blog Posts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section reveal">
+      <div class="container contact-container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>If you'd like to work together or just say hello, feel free to reach out.</p>
+            <ul>
+              <li><strong>Email:</strong> jameslaurencepantohan20@gmail.com</li>
+              <li><strong>Phone:</strong> +63 985 455 8005</li>
+              <li><strong>Location:</strong> Davao City, Philippines</li>
+            </ul>
+            <div class="contact-socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+              <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+              <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> James — All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="modalCaption" class="modal-caption"></div>
+</div>
+</body>
+</html>
