@@ -1298,4 +1298,15 @@ body {
     width: 80%;
     max-width: 200px;
   }
+}.contact-info,
+.contact-form {
+  background: var(--glass);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.05);
+}.contact-info:hover,
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
